@@ -8,9 +8,9 @@ import { TarjetaCredito } from '../models/tarjetaCredito';
   providedIn: 'root'
 })
 export class TarjetaService {
-myAppUrl = 'http://localhost:4200/';
-myApiUrl='api/tarjetaCredito/';
-
+myAppUrl = 'https://localhost:44326/';
+myApiUrl='api/TarjetaCredito/';
+list:TarjetaCredito[];
 
   constructor(private http: HttpClient) {
 
@@ -19,5 +19,11 @@ myApiUrl='api/tarjetaCredito/';
    guardarTarjeta(tarjeta:TarjetaCredito):Observable<TarjetaCredito>{
 
       return this.http.post<TarjetaCredito>(this.myAppUrl + this.myApiUrl,tarjeta);
+   }
+   obtenerTarjetas(){
+     this.http.get(this.myAppUrl + this.myApiUrl).toPromise()
+                  .then(data =>{
+                   this.list = data as TarjetaCredito[];
+                  })
    }
 }

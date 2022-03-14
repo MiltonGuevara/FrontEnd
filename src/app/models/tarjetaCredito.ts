@@ -2,7 +2,7 @@ export class TarjetaCredito{
 
     id?:number;
     titular:string = '';
-    numeroTarjets:string ='';
+    nunTarjeta:string ='';
     fechaExpiracion:string ='';
     cvv:string ='';
 
