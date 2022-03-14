@@ -1,0 +1,61 @@
+<form [formGroup]="form" (ngSubmit)="guardarTarjeta()">
+    <!-- titular -->
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user-circle" [class.green-icon]="this.form.get('titular')?.valid"  
+                      [class.red-icon]="this.form.get('titular')?.invalid && this.form.get('titular')?.touched"></i>
+                </div>
+            </div>
+            <input type="text" class="form-control" formControlName="titular"  placeholder="titular">
+        </div>
+    </div><br>
+    <!-- Numero tarjeta -->
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-credit-card" [class.green-icon]="this.form.get('numeroTarjeta')?.valid"
+                      [class.red-icon]="this.form.get('numeroTarjeta')?.invalid && this.form.get('numeroTarjeta')?.touched"></i>
+                </div>
+            </div>
+            <input type="text" class="form-control" formControlName="numeroTarjeta" maxlength="16"  placeholder="Numero Tarjeta">
+        </div>
+    </div><br>
+    <!-- Fecha de expiracion -->
+    <div class="row">
+        <div class="form-group col-md-7">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-calendar-alt" [class.green-icon]="this.form.get('fechaExpiracion')?.valid"
+                            [class.red-icon]="this.form.get('fechaExpiracion')?.invalid && this.form.get('fechaExpiracion')?.touched"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" formControlName="fechaExpiracion" maxlength="5" placeholder="DD/MM">
+                </div>
+            </div>
+        </div>
+        <!-- cvv -->
+        <div class="form-group col-md-5">        
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text bg-white">
+                                <i class="fas fa-key" [class.green-icon]="this.form.get('cvv')?.valid"
+                                  [class.red-icon]="this.form.get('cvv')?.invalid && this.form.get('cvv')?.touched"></i>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" formControlName="cvv" maxlength="3" placeholder="CVV">
+                    </div>
+                </div>
+            </div>
+    </div><br>
+
+    <div class="form-group" col-md-5>
+        <button [disabled]="form.invalid" class="btn btn-success btn-lg btn-block" type="submit" ><i class="fas fa-database"></i> Aceptar</button>
+    </div>
+
+</form>
