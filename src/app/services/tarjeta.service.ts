@@ -8,9 +8,9 @@ import { TarjetaCredito } from '../models/tarjetaCredito';
   providedIn: 'root'
 })
 export class TarjetaService {
-myAppUrl = 'https://localhost:44326/';
-myApiUrl='api/TarjetaCredito/';
-list:TarjetaCredito[];
+    myAppUrl = 'https://localhost:44326/';
+    myApiUrl='api/TarjetaCredito/';
+    list:TarjetaCredito[];
 
   constructor(private http: HttpClient) {
 
@@ -37,7 +37,7 @@ list:TarjetaCredito[];
    }
    
 
-   actualizar(tarjeta:TarjetaCredito){
+   editar(tarjeta:TarjetaCredito){
      this.ActualizarFormulario.next(tarjeta);
    }
 

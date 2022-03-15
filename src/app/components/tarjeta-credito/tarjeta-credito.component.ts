@@ -18,9 +18,7 @@ export class TarjetaCreditoComponent implements OnInit, OnDestroy {
   tarjeta:TarjetaCredito;
   idTarjeta: any = 0;
 
-  constructor(private formBuilder:FormBuilder, 
-              private tarjetaService:TarjetaService,
-              private toastr:ToastrService) { 
+  constructor(private formBuilder:FormBuilder,  private tarjetaService:TarjetaService, private toastr:ToastrService) { 
 
     this.form = this.formBuilder.group({
       id:0,
@@ -30,6 +28,7 @@ export class TarjetaCreditoComponent implements OnInit, OnDestroy {
       cvv:['',[Validators.required, Validators.maxLength(6), Validators.minLength(3)]]
     });
   }
+
   //Se subscribe para recibir la informacion de la tarjeta
   ngOnInit(): void {
      this.suscription = this.tarjetaService.obtenerTarjeta$().subscribe(data=>{ console.log(data);
@@ -56,7 +55,7 @@ export class TarjetaCreditoComponent implements OnInit, OnDestroy {
  
      }  
      this.tarjetaService.guardarTarjeta(tarjeta).subscribe(data =>{
-         this.toastr.show('Registro agregado', 'La terjeta fue agregada');
+         this.toastr.success('Registro agregado', 'La terjeta fue agregada');
          this.form.reset();
          this.tarjetaService.obtenerTarjetas();
      })
@@ -90,7 +89,7 @@ export class TarjetaCreditoComponent implements OnInit, OnDestroy {
  
      }  
      this.tarjetaService.actualizarTarjeta(this.idTarjeta, tarjeta).subscribe(data =>{
-      this.toastr.show('Registro actualizado', 'La terjeta fue actualizada');
+      this.toastr.success('Registro actualizado', 'La terjeta fue actualizada');
       this.form.reset();
       this.tarjetaService.obtenerTarjetas();
       this.idTarjeta=0;

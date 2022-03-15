@@ -28,6 +28,6 @@ export class ListTarjetaCreditoComponent implements OnInit {
   }
 
   editar(tarjeta:TarjetaCredito){
-      this.tarjetaService.actualizar(tarjeta);
+      this.tarjetaService.editar(tarjeta);
   }
 }
