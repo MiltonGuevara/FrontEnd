@@ -31,19 +31,19 @@ export class TarjetaCreditoComponent implements OnInit, OnDestroy {
 
   //Se subscribe para recibir la informacion de la tarjeta
   ngOnInit(): void {
-     this.suscription = this.tarjetaService.obtenerTarjeta$().subscribe(data=>{ console.log(data);
+      this.suscription = this.tarjetaService.obtenerTarjeta$().subscribe(data=>{
       this.tarjeta = data;
 
-      //llenar el formulario
+       //llenar el formulario
       this.form.patchValue({
-        titular:this.tarjeta.titular,
-        numeroTarjeta:this.tarjeta.nunTarjeta,
-        fechaExpiracion:this.tarjeta.fechaExpiracion,
-        cvv:this.tarjeta.cvv
+         titular:this.tarjeta.titular,
+         numeroTarjeta:this.tarjeta.nunTarjeta,
+          fechaExpiracion:this.tarjeta.fechaExpiracion,
+          cvv:this.tarjeta.cvv
 
+        });
+        this.idTarjeta = this.tarjeta.id;
       });
-      this.idTarjeta = this.tarjeta.id;
-    });
   }
 
   agregar(){
@@ -53,7 +53,7 @@ export class TarjetaCreditoComponent implements OnInit, OnDestroy {
       fechaExpiracion:this.form.get('fechaExpiracion')?.value,
       cvv:this.form.get('cvv')?.value
  
-     }  
+    }  
      this.tarjetaService.guardarTarjeta(tarjeta).subscribe(data =>{
          this.toastr.success('Registro agregado', 'La terjeta fue agregada');
          this.form.reset();
