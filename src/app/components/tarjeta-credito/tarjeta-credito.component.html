@@ -25,7 +25,7 @@
     </div><br>
     <!-- Fecha de expiracion -->
     <div class="row">
-        <div class="form-group col-md-7">
+        <div class="form-group">
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -38,24 +38,24 @@
                 </div>
             </div>
         </div>
-        <!-- cvv -->
-        <div class="form-group col-md-5">        
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text bg-white">
-                                <i class="fas fa-key" [class.green-icon]="this.form.get('cvv')?.valid"
-                                  [class.red-icon]="this.form.get('cvv')?.invalid && this.form.get('cvv')?.touched"></i>
-                            </div>
-                        </div>
-                        <input type="text" class="form-control" formControlName="cvv" maxlength="3" placeholder="CVV">
+        
+    </div><br>
+    <!-- cvv -->
+    <div class="form-group">        
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                        <i class="fas fa-key" [class.green-icon]="this.form.get('cvv')?.valid"
+                          [class.red-icon]="this.form.get('cvv')?.invalid && this.form.get('cvv')?.touched"></i>
                     </div>
                 </div>
+                <input type="text" class="form-control" formControlName="cvv" maxlength="3" placeholder="CVV">
             </div>
+        </div>
     </div><br>
-
     <div class="form-group col-md-5">
         <button [disabled]="form.invalid" class="btn btn-success btn-lg btn-block" type="submit" ><i class="fas fa-database"></i> Aceptar</button>
-    </div>
-
+    </div><br>
+    
 </form>
